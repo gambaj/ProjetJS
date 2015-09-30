@@ -2,29 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"><!--IE-->
-    <meta name="viewport" content="width=device-width, initial-scale=1"><!--Mobile Version-->
-    <title>ProjetJS</title>
-    <link href="style.css" rel="stylesheet"/>
-    <script type="text/javascript" src="gojs/go-debug.js"> </script>
+    <title>Projet JavaScript de notes interactives</title>
+
+    <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet"/>
 </head>
 
 <body>
-    <div id="divTableau">
+    <div class="container">
+        <div class="row">
+            <div id="divTableau" class="col-xs-8" ></div>
+
+            <div id="divMenu" class="col-xs-4">
+                <!--<form>-->
+                <label style="padding: 5px; color: black"> Titre de la note</label>
+                <input type="text" id="textInputTitle" placeholder="Titre"/><br /><br />
+
+                <label id="labelContenuNote" style="padding: 5px; color: black">Contenu de votre note</label>
+                <textarea rows="5" id="textInputText" placeholder="Tapez votre note"></textarea><br><br>
+
+                <label id="labelGroupNote" style="padding: 5px; color: black">Categorie</label>
+                <input type="text" id="textInputGroup" placeholder="Catégorie"/><br /><br />
+
+                <button class="btn btn-primary" onclick="creationNote(document.getElementById('textInputTitle').value,document.getElementById('textInputText').value)">Valider</button>
+                <!--</form>-->
+            </div>
+        </div>
     </div>
 
-    <div id="divMenu">
-        <label style="padding: 5px; color: black"> Titre de la note</label>
-        <input type="text" id="textInputTitle" value="Titre"/><br><br>
-        <label id="labelContenuNote" style="padding: 5px; color: black"> Contenu de votre note</label>
-        <textarea rows="5" id="textInputText">Tapez votre note</textarea><br><br>
-        <button onclick="creationNote(document.getElementById('textInputTitle').value,document.getElementById('textInputText').value)">OK</button>
-
-        <input type="text" id="textInputGroup" value="Titre"/><br><br>
-        <label id="labelGroupNote" style="padding: 5px; color: black">Categorie</label>
-    </div>
-
-    <script  src="note.js"> </script>
-    <script  src="creation.js"> </script>
+    <script src="lib/gojs/go-debug.js"></script>
+    <script src="lib/bootstrap/dist/js/jquery-2.1.4.min.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script  src="js/note.js"> </script>
+    <script  src="js/creation.js"> </script>
 </body>
 </html>
