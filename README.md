@@ -3,13 +3,13 @@ Ce projet consiste à créer dynamiquement des notes de façon collaborative et 
 Chaque utilisateur peut créer des notes qu'il peut classer selon les categories de son choix
 
 # Environnement technique
-HTML5
 
-JavaScript :
-- Cobra
-- GoJS
-  
-BootStrap
+-HTML5
+-JavaScript :
+  - Cobra
+  - GoJS
+
+-BootStrap
 
 #Auteur
 - Jordann Gamba
