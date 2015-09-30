@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"><!--IE-->
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!--Mobile Version-->
     <title>ProjetJS</title>
     <link href="style.css" rel="stylesheet"/>
-    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="bootstrap/dist/css/tuto.css" rel="stylesheet">
-    <script src="bootstrap/dist/js/jquery.js"></script>
-    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="gojs/go-debug.js"> </script>
 </head>
 
 <body>
     <div id="divTableau">
-    </div><div id="divMenu">
+    </div>
+
+    <div id="divMenu">
         <label style="padding: 5px; color: black"> Titre de la note</label>
         <input type="text" id="textInputTitle" value="Titre"/><br><br>
         <label id="labelContenuNote" style="padding: 5px; color: black"> Contenu de votre note</label>
-        <textarea rows="5" id="textInputText"> Tapez votre note</textarea><br><br>
-        <button>OK</button>
+        <textarea rows="5" id="textInputText">Tapez votre note</textarea><br><br>
+        <button onclick="creationNote(document.getElementById('textInputTitle').value,document.getElementById('textInputText').value)">OK</button>
+
+        <input type="text" id="textInputGroup" value="Titre"/><br><br>
+        <label id="labelGroupNote" style="padding: 5px; color: black">Categorie</label>
     </div>
 
     <script  src="note.js"> </script>
+    <script  src="creation.js"> </script>
 </body>
 </html>

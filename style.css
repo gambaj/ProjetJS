@@ -2,7 +2,7 @@
     display: inline-block;
     background-color:#DAE4E4;
     width: 70%;
-    height: 700px;
+    height: 750px;
     border: 1px solid black;
     vertical-align: top;
     box-sizing: border-box;
@@ -12,12 +12,16 @@
     display: inline-block;
     background-color:#DDDDDD;
     width: 29%;
-    height: 700px;
+    height: 99%;
     border: 1px solid black;
     vertical-align: top;
     box-sizing: border-box;
 }
 
 #labelContenuNote{
+    vertical-align: top;
+}
+
+#labelGroupNote{
     vertical-align: top;
 }
