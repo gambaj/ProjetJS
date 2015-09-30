@@ -1,0 +1,23 @@
+#divTableau{
+    display: inline-block;
+    background-color:#DAE4E4;
+    width: 70%;
+    height: 700px;
+    border: 1px solid black;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+#divMenu{
+    display: inline-block;
+    background-color:#DDDDDD;
+    width: 29%;
+    height: 700px;
+    border: 1px solid black;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+#labelContenuNote{
+    vertical-align: top;
+}

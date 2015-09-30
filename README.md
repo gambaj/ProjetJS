@@ -10,6 +10,6 @@ JavaScript :
 BootStrap
 
 #Auteur
-Jordann Gamba
-Salsabile Hakimi
-Congcong Xu
+- Jordann Gamba
+- Salsabile Hakimi  
+- Congcong Xu
