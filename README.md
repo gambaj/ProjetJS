@@ -4,12 +4,11 @@ Chaque utilisateur peut créer des notes qu'il peut classer selon les categories
 
 # Environnement technique
 
--HTML5
--JavaScript :
-  - Cobra
-  - GoJS
-
--BootStrap
+* HTML5
+* BootStrap
+* JavaScript :
+    * Cobra
+    * GoJS
 
 #Auteur
 - Jordann Gamba
