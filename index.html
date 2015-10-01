@@ -9,23 +9,28 @@
 </head>
 
 <body>
-    <div class="container">
+
+<nav class="navbar navbar-inverse"></nav>
+
+    <div>
         <div class="row">
             <div id="divTableau" class="col-xs-8" ></div>
 
             <div id="divMenu" class="col-xs-4">
-                <!--<form>-->
-                <label style="padding: 5px; color: black"> Titre de la note</label>
-                <input type="text" id="textInputTitle" placeholder="Titre"/><br /><br />
-
-                <label id="labelContenuNote" style="padding: 5px; color: black">Contenu de votre note</label>
-                <textarea rows="5" id="textInputText" placeholder="Tapez votre note"></textarea><br><br>
-
-                <label id="labelGroupNote" style="padding: 5px; color: black">Categorie</label>
-                <input type="text" id="textInputGroup" placeholder="Catégorie"/><br /><br />
+                <div class="form-group">
+                    <label style="padding: 5px; color: black"> Titre de la note</label>
+                    <input type="text" class="form-control" id="textInputTitle" placeholder="Titre"/>
+                </div>
+                <div class="form-group">
+                    <label id="labelContenuNote" style="padding: 5px; color: black">Contenu de votre note</label>
+                    <textarea rows="5" class="form-control" id="textInputText" placeholder="Tapez votre note..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label id="labelGroupNote" style="padding: 5px; color: black">Categorie</label>
+                    <input type="text" class="form-control" id="textInputGroup" placeholder="Maison, Travail, Liste de course..."/>
+                </div>
 
                 <button class="btn btn-primary" onclick="creationNote(document.getElementById('textInputTitle').value,document.getElementById('textInputText').value)">Valider</button>
-                <!--</form>-->
             </div>
         </div>
     </div>

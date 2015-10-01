@@ -5,7 +5,7 @@ Chaque utilisateur peut créer des notes qu'il peut classer selon les categories
 # Environnement technique
 
 * HTML5
-* BootStrap
+* CSS3(BootStrap)
 * JavaScript :
     * Cobra
     * GoJS

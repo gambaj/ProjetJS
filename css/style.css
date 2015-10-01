@@ -1,0 +1,30 @@
+#divTableau{
+    height: 750px;
+    background-color:#DAE4E4;
+    border: 1px solid black;
+}
+
+
+#divMenu{
+    height: 750px;
+    background-color:#DDDDDD;
+    border: 1px solid black;
+}
+
+#labelContenuNote{
+    vertical-align: top;
+}
+
+#labelGroupNote{
+    vertical-align: top;
+}
+
+body {
+}
+[class*="col-"], footer {
+    background-color: lightgreen;
+    border: 2px solid black;
+    border-radius: 6px;
+    line-height: 40px;
+    text-align: center;
+}
