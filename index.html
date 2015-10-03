@@ -5,40 +5,90 @@
     <title>Projet JavaScript de notes interactives</title>
 
     <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="lib/bootstrap/dist/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet"/>
+
 </head>
 
 <body>
-
-<nav class="navbar navbar-inverse"></nav>
-
     <div>
         <div class="row">
             <div id="divTableau" class="col-xs-8" ></div>
 
             <div id="divMenu" class="col-xs-4">
-                <div class="form-group">
-                    <label style="padding: 5px; color: black"> Titre de la note</label>
-                    <input type="text" class="form-control" id="textInputTitle" placeholder="Titre"/>
-                </div>
-                <div class="form-group">
-                    <label id="labelContenuNote" style="padding: 5px; color: black">Contenu de votre note</label>
-                    <textarea rows="5" class="form-control" id="textInputText" placeholder="Tapez votre note..."></textarea>
-                </div>
-                <div class="form-group">
-                    <label id="labelGroupNote" style="padding: 5px; color: black">Categorie</label>
-                    <input type="text" class="form-control" id="textInputGroup" placeholder="Maison, Travail, Liste de course..."/>
-                </div>
 
-                <button class="btn btn-primary" onclick="creationNote(document.getElementById('textInputTitle').value,document.getElementById('textInputText').value)">Valider</button>
+                <br />
+                <div class="form-group col-xs-12" id="session">
+                    <label class="col-xs-3">Session</label>
+                    <div class="col-xs-7">
+                        <input type="text" class="form-control" id="textInputSession" placeholder="Auteur..."/>
+                    </div>
+                </div><br /><br /><br />
+
+                <div class="form-group col-xs-12">
+                    <label class="col-xs-3">Theme</label>
+                    <div class="col-xs-7">
+                        <input type="text" class="form-control" id="textInputTitle" placeholder="Titre"/>
+                    </div>
+                </div><br /><br />
+
+                <div class="form-group col-xs-12">
+                    <label class="col-xs-3">Categorie</label>
+                    <div class="col-xs-7">
+                        <select class="form-control" name="category" id="textInputGroup">
+                            <option value=""></option>
+                            <option value="0">Maison</option>
+                            <option value="1">Travail</option>
+                            <option value="2">Liste de course</option>
+                        </select>
+                    </div>
+                </div><br /><br />
+
+                <div class="form-group col-xs-12">
+                    <label for="dtp_input1" class="col-xs-3 control-label">Date</label>
+                    <div class="input-group date datetime col-xs-7" data-link-field="dtp_input1">
+                        <input class="form-control" size="16" type="text" value="" readonly>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                    </div>
+                    <input type="hidden" id="dtp_input1" value="" /><br/>
+                </div><br /><br />
+
+                <div class="form-group col-xs-12">
+                    <label class="col-xs-3">Contenu</label>
+
+                    <div class="col-xs-7">
+                        <textarea rows="5" class="form-control" id="textInputText" placeholder="Tapez votre note..."></textarea>
+                    </div>
+
+                </div><br /><br />
+
+                <div class="form-group" id="validation">
+                    <button class="btn btn-primary" onclick="creationNote($('#textInputTitle').val(),$('#textInputText').val());">Valider</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <script src="lib/gojs/go-debug.js"></script>
     <script src="lib/bootstrap/dist/js/jquery-2.1.4.min.js"></script>
+    <script src="lib/gojs/go-debug.js"></script>
+    <script src="js/note.js"></script>
+    <script src="js/creation.js"></script>
     <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script  src="js/note.js"> </script>
-    <script  src="js/creation.js"> </script>
+    <script src="lib/bootstrap/dist/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap-datetimepicker.fr.js"></script>
+    <script type="text/javascript">
+        $('.datetime').datetimepicker({
+            format: 'mm/dd/yyyy hh:mm',
+            language:  'fr',
+            weekStart: 1,
+            todayBtn:  1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            forceParse: 0,
+            showMeridian: 1
+        });
+    </script>
 </body>
 </html>
