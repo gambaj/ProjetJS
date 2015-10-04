@@ -1,0 +1,16 @@
+</head>
+<body data-ng-app="app" >
+ <div data-ng-controller="ctrl" ng-show="loginsucceed==true">
+     <input type="text" ng-model="tx1" name="text1"/>
+     {{tx1}}
+     <button >OK1</button>
+     <input type="text" name="text2"/>
+     <button >OK2</button>
+ </div>
+</body>
+
+angular.module('app', [])
+ .controller("ctrl", function ($scope) {
+    $scope.loginsucceed=true;
+    $scope.tx1="please input something";
+ });
