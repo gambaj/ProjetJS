@@ -22,6 +22,13 @@ function height(bloc){
 
     document.getElementById(bloc).style.height = hauteur+"px";
 }
-window.onload = function(){ height("divTableau"); height("divMenu") }
 
-//$("#formulaire").hide();
+window.onload = function(){ height("divTableau"); height("divMenu") }
+$("#formulaire").hide();
+
+function afficheFormulaire() {
+    $('#textInputSession').prop('disabled', true);
+    $('#formulaire').show();
+}
+
+

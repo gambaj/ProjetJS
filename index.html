@@ -16,13 +16,17 @@
             <div id="divMenu" class="col-xs-4">
 
                 <br />
-                <div id="connexion">
-                    <div class="form-group col-xs-12" id="session">
+                <div id="session">
+                    <div class="form-group col-xs-12">
                         <label class="col-xs-3">Session</label>
-                        <div class="col-xs-7">
-                            <input type="text" class="form-control" id="textInputSession" placeholder="Connexion pour voir les champs.." autofocus/>
+                        <div class="col-xs-5">
+                            <input type="text" class="form-control" id="textInputSession" placeholder="Connexion..."  autofocus/>
                         </div>
-                    </div><br /><br /><br />
+                        <div id="connexion" class="col-xs-3 form-group">
+                            <button class="btn btn-default" onclick="afficheFormulaire()">Connexion</button>
+                        </div>
+                    </div>
+                    <br /><br /><br />
                 </div>
 
                 <div id="formulaire">
