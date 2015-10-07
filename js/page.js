@@ -34,5 +34,10 @@ function afficheFormulaire() {
 }
 
 function generateImages() {
-    
+    var imgData = monDiagramme.makeImageData({
+        scale: 1
+    });
+
+    jQuery("#imgLink").attr('href', imgData);
+    jQuery("#imgLink")[0].click();
 }
