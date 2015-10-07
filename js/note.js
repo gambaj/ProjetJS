@@ -20,10 +20,8 @@ var monDiagramme = $$(go.Diagram,"divTableau",
                 desiredSize: new go.Size(150, 150)
 
             },
-
             $$(go.Panel,"Table",
                 { defaultRowSeparatorStroke: "back" },
-                //new go.Binding("itemArray","ClassNom"),
                     $$(go.TextBlock,
                         {
                             row: 0, margin: 3, alignment: go.Spot.Center,
@@ -32,7 +30,6 @@ var monDiagramme = $$(go.Diagram,"divTableau",
                             name : "name"
                         },
                         new go.Binding("text","nodeTitle").makeTwoWay())
-                         //{ column: 0, margin: 0, font: "bold 10pt sans-serif"
             ),
             $$(go.Panel,"Table",
                 $$(go.TextBlock, new go.Binding("text","nodeContenu").makeTwoWay(),
