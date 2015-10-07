@@ -25,10 +25,14 @@ function height(bloc){
 
 window.onload = function(){ height("divTableau"); height("divMenu") }
 $("#formulaire").hide();
+$("#impression").hide();
 
 function afficheFormulaire() {
     $('#textInputSession').prop('disabled', true);
     $('#formulaire').show();
+    $('#impression').show();
 }
 
-
+function generateImages() {
+    
+}

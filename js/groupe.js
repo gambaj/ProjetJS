@@ -2,7 +2,7 @@
  * Created by salsabile on 30-09-15.
  */
 
-myDiagram.groupTemplate =
+monDiagramme.groupTemplate =
     $$(go.Group, "Auto",
         {
             isSubGraphExpanded: false,
