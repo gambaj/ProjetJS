@@ -17,11 +17,10 @@
 }
 
 #page {
-    width : 101%;
+    width : 100%;
 }
 
 #myOverviewDiv {
     Border:solid 2px black;
-    height: 200px;
-    width : 200px;
+    height: 130px;
 }

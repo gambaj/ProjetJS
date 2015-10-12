@@ -23,7 +23,7 @@
                             <input type="text" class="form-control" id="textInputSession" placeholder="Connexion..."  autofocus/>
                         </div>
                         <div id="connexion" class="col-xs-3 form-group">
-                            <button class="btn btn-default" onclick="afficheFormulaire()">Connexion</button>
+                            <button class="btn btn-default" id="button">Connexion</button>
                         </div>
                     </div>
                     <br /><br /><br />
@@ -77,9 +77,9 @@
                 </div>
                 <br />
 
-                <div class="form-group" id="Enregistrer">
+                <div class="form-group" id="impression">
+                    <div id="myOverviewDiv" class="col-xs-offset-1 col-xs-4"></div>
                     <button class="btn btn-info col-xs-offset-1" onclick="generateImages()">Enregistrer</button>
-                    <div id="myOverviewDiv" class="col-lg-2"></div>
                 </div>
 
                 <div id='diagImage' style='display:none;'>
@@ -98,5 +98,9 @@
     <script src="lib/bootstrap/dist/js/bootstrap-datetimepicker.min.js"></script>
     <script src="lib/bootstrap/dist/js/bootstrap-datetimepicker.fr.js"></script>
     <script src="js/page.js"></script>
+    <script>
+        var page = new Page();
+        page.initialiser();
+    </script>
 </body>
 </html>
