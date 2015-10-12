@@ -3,7 +3,6 @@
  */
 
 function creationNote(titre,textenote,autorName){
-    alert(autorName);
     var node = false;
     if(!node) {
         node = {
