@@ -17,7 +17,7 @@ var monDiagramme = $$(go.Diagram,"divTableau",
         $$(go.Node,"Vertical",
             {
                 background: "lightyellow",
-                desiredSize: new go.Size(150, 150)
+                minSize: new go.Size(150, 150)
 
             },
             $$(go.Panel,"Table",
@@ -40,6 +40,10 @@ var monDiagramme = $$(go.Diagram,"divTableau",
                 )
             )
         );
+
+//Ajout de l'overview
+var myOverview = $$(go.Overview,"myOverviewDiv",{ observed: monDiagramme });
+
 
 
 
