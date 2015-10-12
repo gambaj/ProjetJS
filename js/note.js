@@ -35,9 +35,17 @@ var monDiagramme = $$(go.Diagram,"divTableau",
                 //$$(go.Panel,"Table",
                     $$(go.TextBlock, new go.Binding("text","nodeContenu").makeTwoWay(),
                         {
-                            row: 1, margin: 3,
+                            row: 1, margin: 3,alignment: go.Spot.Left,
                             font: "bold 10pt sans-serif",
                             isMultiline: true, editable: true
+
+                        }
+                    ),
+                    $$(go.TextBlock, new go.Binding("text","nodeAutorName").makeTwoWay(),
+                        {
+                            row: 2, margin: 3,alignment: go.Spot.Right,
+                            font: "Comic Sans MS",
+                            isMultiline: false, editable: false
 
                         }
                     )

@@ -2,12 +2,14 @@
  * Created by salsabile on 30-09-15.
  */
 
-function creationNote(titre,textenote){
+function creationNote(titre,textenote,autorName){
+    alert(autorName);
     var node = false;
     if(!node) {
         node = {
             nodeTitle: titre,
-            nodeContenu: textenote
+            nodeContenu: textenote,
+            nodeAutorName:autorName
         };
 
         // Transaction qui nous permet d'ajouter la classe au diagramme
