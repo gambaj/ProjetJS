@@ -21,7 +21,9 @@ var monDiagramme = $$(go.Diagram,"divTableau",
 
             },
             $$(go.Panel,"Table",
-                { defaultRowSeparatorStroke: "back" },
+                {
+                    defaultRowSeparatorStroke: "back"
+                },
                     $$(go.TextBlock,
                         {
                             row: 0, margin: 3, alignment: go.Spot.Center,
