@@ -29,16 +29,19 @@ var monDiagramme = $$(go.Diagram,"divTableau",
                             isMultiline: false, editable: true,
                             name : "name"
                         },
-                        new go.Binding("text","nodeTitle").makeTwoWay())
-            ),
-            $$(go.Panel,"Table",
-                $$(go.TextBlock, new go.Binding("text","nodeContenu").makeTwoWay(),
-                    {
-                        column: 0, margin: 0, font: "bold 10pt sans-serif",
-                        isMultiline: true, editable: true
-                    }
-                )
+                        new go.Binding("text","nodeTitle").makeTwoWay()),
+                //$$(go.Panel,"Table",
+                    $$(go.TextBlock, new go.Binding("text","nodeContenu").makeTwoWay(),
+                        {
+                            row: 1, margin: 3,
+                            font: "bold 10pt sans-serif",
+                            isMultiline: true, editable: true
+
+                        }
+                    )
+                //)
             )
+
         );
 
 //Ajout de l'overview
