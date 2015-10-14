@@ -55,7 +55,7 @@
                     <div class="form-group col-xs-12">
                         <label for="dtp_input1" class="col-xs-3 control-label">Date</label>
                         <div class="input-group date datetime col-xs-7" data-link-field="dtp_input1">
-                            <input class="form-control" size="16" type="text" value="" readonly>
+                            <input class="form-control" id="textInputDate" size="16" type="text" value="" readonly>
                             <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                         </div>
@@ -72,7 +72,7 @@
                     </div><br /><br />
 
                     <div class="form-group" id="validation">
-                        <button class="btn btn-primary col-xs-offset-1" onclick="creationNote($('#textInputTitle').val(),$('#textInputText').val(),$('#textInputSession').val());">Valider</button>
+                        <button class="btn btn-primary col-xs-offset-1" onclick="creationNote($('#textInputTitle').val(),$('#textInputText').val(),$('#textInputSession').val(),$('#textInputDate').val());">Valider</button>
                     </div>
                 </div>
                 <br />

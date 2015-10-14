@@ -44,7 +44,15 @@ var monDiagramme = $$(go.Diagram,"divTableau",
                     $$(go.TextBlock, new go.Binding("text","nodeAutorName").makeTwoWay(),
                         {
                             row: 2, margin: 3,alignment: go.Spot.Right,
-                            font: "Comic Sans MS",
+                            font: "Comic Sans MS",stroke: "gray",
+                            isMultiline: false, editable: false
+
+                        }
+                    ),
+                    $$(go.TextBlock, new go.Binding("text","nodeDateFinal").makeTwoWay(),
+                        {
+                            row: 2, margin: 3,alignment: go.Spot.Left,
+                            font: "Comic Sans MS",stroke: "gray",
                             isMultiline: false, editable: false
 
                         }
