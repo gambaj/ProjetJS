@@ -72,7 +72,7 @@
                     </div><br /><br />
 
                     <div class="form-group" id="validation">
-                        <button class="btn btn-primary col-xs-offset-1" onclick="creationNote($('#textInputTitle').val(),$('#textInputText').val(),$('#textInputSession').val(),$('#textInputDate').val());">Valider</button>
+                        <button id="valider" class="btn btn-primary col-xs-offset-1">Valider</button>
                     </div>
                 </div>
                 <br />
@@ -98,6 +98,10 @@
     <script src="lib/bootstrap/dist/js/bootstrap-datetimepicker.min.js"></script>
     <script src="lib/bootstrap/dist/js/bootstrap-datetimepicker.fr.js"></script>
     <script src="js/page.js"></script>
+    <script src="lib/cobra/js/cobra.js"></script>
+    <script src="lib/cobra/js/socket.io.js"></script>
+    <script src="js/newCobra.js"></script>
+
     <script>
         var page = new Page();
         page.initialiser();
