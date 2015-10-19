@@ -24,3 +24,7 @@
     Border:solid 2px black;
     height: 130px;
 }
+
+textarea{
+    resize:none;
+}

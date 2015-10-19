@@ -3,7 +3,6 @@ function Page() {
     this.hauteur = 0;
 }
 
-// Ce qui change pas est ici, ce qui change est là haut.
 Page.prototype = {
 
     /**
@@ -17,6 +16,7 @@ Page.prototype = {
         }
         page.afficheFormulaire();
         page.timedate();
+        page.generateImages();
     },
 
     /**
@@ -44,16 +44,17 @@ Page.prototype = {
     },
 
     /**
-     * Cette fonction cache le formulaire.
+     * Cette fonction cache, puis affiche le formulaire lorsque l'utilisateur se connecte.
      */
     afficheFormulaire:function() {
 
         $("#formulaire").hide();
         $("#impression").hide();
-        $("#button").click(function() {
-            $('#textInputSession').prop('disabled', true);
-            $('#formulaire').show();
-            $('#impression').show();
+        $("#buttonConnexion").click(function() {
+            if ($.trim($("#textInputSession").val()).length > 0) {
+                $('#formulaire').show();
+                $('#impression').show();
+            }
         });
     },
 
@@ -74,14 +75,20 @@ Page.prototype = {
             forceParse: 0,
             showMeridian: 1
         });
+    },
+
+    /**
+     * Cette fonction telechargement l'image du diagramme de post-it.
+     */
+    generateImages:function() {
+
+        $("#buttonImpression").click(function() {
+            var imgData = monDiagramme.makeImageData({
+                scale: 1
+            });
+
+            jQuery("#imgLink").attr('href', imgData);
+            jQuery("#imgLink")[0].click();
+        })
     }
-}
-
-function generateImages() {
-    var imgData = monDiagramme.makeImageData({
-        scale: 1
-    });
-
-    jQuery("#imgLink").attr('href', imgData);
-    jQuery("#imgLink")[0].click();
 }
