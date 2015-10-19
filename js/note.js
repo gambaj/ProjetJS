@@ -17,19 +17,20 @@ var monDiagramme = $$(go.Diagram,"divTableau",
         $$(go.Node,"Vertical",
             {
                 background: "lightyellow",
-                minSize: new go.Size(150, 150)
+                minSize: new go.Size(200, 200)
 
             },
             $$(go.Panel,"Table",
                 {
-                    defaultRowSeparatorStroke: "back"
+                    defaultRowSeparatorStroke: "black"
                 },
                     $$(go.TextBlock,
                         {
-                            row: 0, margin: 3, alignment: go.Spot.Center,
+                            row: 0, margin: 3,
                             font: "bold 12pt sans-serif",
                             isMultiline: false, editable: true,
-                            name : "name"
+                            name : "name",
+                            alignment: go.Spot.Center
                         },
                         new go.Binding("text","nodeTitle").makeTwoWay()),
                 //$$(go.Panel,"Table",
@@ -45,7 +46,8 @@ var monDiagramme = $$(go.Diagram,"divTableau",
                         {
                             row: 2, margin: 3,alignment: go.Spot.Right,
                             font: "Comic Sans MS",stroke: "gray",
-                            isMultiline: false, editable: false
+                            isMultiline: false, editable: false,
+                            width: 70
 
                         }
                     ),
@@ -53,7 +55,8 @@ var monDiagramme = $$(go.Diagram,"divTableau",
                         {
                             row: 2, margin: 3,alignment: go.Spot.Left,
                             font: "Comic Sans MS",stroke: "gray",
-                            isMultiline: false, editable: false
+                            isMultiline: false, editable: false,
+                            width: 200
 
                         }
                     )
