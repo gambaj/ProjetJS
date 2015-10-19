@@ -28,10 +28,10 @@
             else{
                 console.log("else");
                 if (socketId == message.socketId) {
-                    creationNote(message.message.title, message.message.content);
+                    creationNote(message.message.title, message.message.content, message.message.user, message.message.date);
                 }
                 else {
-                    creationNote(message.message.title, message.message.content);
+                    creationNote(message.message.title, message.message.content, message.message.user, message.message.date);
                 }
             }
 
@@ -46,12 +46,14 @@
                 var title = $("#textInputTitle").val();
                 var content = $("#textInputText").val();
                 var user = $("#textInputSession").val();
-
-                if(title && content && user) {
-                    var message={title:title, content: content, user: user};
+                var date = $("#textInputDate").val();
+                if(title && content && user && date) {
+                    var message={title:title, content: content, user: user, date: date};
                     cobra.sendMessage(message, room, true);
                     $("#textInputTitle").val("");
                     $("#textInputText").val("");
+                    $("#textInputSession").val("");
+                    $("#textInputDate").val("");
                     $("#textInputTitle").focus();
                 }
             }
