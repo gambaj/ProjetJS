@@ -92,7 +92,7 @@ $(document).ready(function () {
             cobra.connect("http://cobra-framework.com:8080");
         }
         else{
-            alert("Veuillez saisir votre nom pour connecter!");
+            alert("Veuillez saisir votre nom pour ouvrir une session!");
         }
     }) ;
 });
