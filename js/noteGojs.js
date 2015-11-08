@@ -18,8 +18,8 @@ monDiagramme.nodeTemplate=
         {
             background: "lightyellow",
             minSize: new go.Size(200, 200)
-
         },
+        new go.Binding("location", "loc"),
         $$(go.Panel,"Table",
             {
                 defaultRowSeparatorStroke: "black"
