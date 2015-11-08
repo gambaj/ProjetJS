@@ -1,75 +1,36 @@
-/**
- * Created by salsabile on 30-09-15.
- */
+// Définition de l'objet Note.
+function Note() {
+    this.node = false;
+}
 
+Note.prototype = {
 
-var $$ = go.GraphObject.make;
-var monDiagramme = $$(go.Diagram,"divTableau",
-    {
-        initialContentAlignment: go.Spot.Center, // Center Diagram contents
-        "undoManager.isEnabled": true  //interaction ctrl z,y, ...
+    /**
+     * Cette fonction crée une note et l'ajoute au diagramme.
+     */
+    creation:function (titre, contenu, auteur, echeance) {
+        this.initialiser(titre, contenu, auteur, echeance);
+        this.ajoutDiagramme();
+    },
+
+    /**
+     * Cette fonction permet d'initialiser une note avec les valeurs du formulaire.
+     */
+    initialiser:function (titre, contenu, auteur, echeance) {
+        this.node = {
+            nodeTitre: titre,
+            nodeContenu: contenu,
+            nodeAuteurName: auteur,
+            nodeDateFinal: echeance
+        };
+    },
+
+    /**
+     * Cette fonction permet d'ajouter la note au diagramme.
+     */
+    ajoutDiagramme: function() {
+        monDiagramme.startTransaction('addNode');
+        monDiagramme.model.addNodeData(this.node);
+        monDiagramme.commitTransaction('addNode');
     }
-);
-
-//Définir un modéle de noeuds simple
-
-    monDiagramme.nodeTemplate=
-        $$(go.Node,"Vertical",
-            {
-                background: "lightyellow",
-                minSize: new go.Size(200, 200)
-
-            },
-            $$(go.Panel,"Table",
-                {
-                    defaultRowSeparatorStroke: "black"
-                },
-                    $$(go.TextBlock,
-                        {
-                            row: 0, margin: 3,
-                            font: "bold 12pt sans-serif",
-                            isMultiline: false, editable: true,
-                            name : "name",
-                            alignment: go.Spot.Center
-                        },
-                        new go.Binding("text","nodeTitle").makeTwoWay()),
-                //$$(go.Panel,"Table",
-                    $$(go.TextBlock, new go.Binding("text","nodeContenu").makeTwoWay(),
-                        {
-                            row: 1, margin: 3,alignment: go.Spot.Left,
-                            font: "bold 10pt sans-serif",
-                            isMultiline: true, editable: true
-
-                        }
-                    ),
-                    $$(go.TextBlock, new go.Binding("text","nodeAutorName").makeTwoWay(),
-                        {
-                            row: 2, margin: 3,alignment: go.Spot.Right,
-                            font: "Comic Sans MS",stroke: "gray",
-                            isMultiline: false, editable: false,
-                            width: 70
-
-                        }
-                    ),
-                    $$(go.TextBlock, new go.Binding("text","nodeDateFinal").makeTwoWay(),
-                        {
-                            row: 2, margin: 3,alignment: go.Spot.Left,
-                            font: "Comic Sans MS",stroke: "gray",
-                            isMultiline: false, editable: false,
-                            width: 200
-
-                        }
-                    )
-                //)
-            )
-
-        );
-
-//Ajout de l'overview
-var myOverview = $$(go.Overview,"myOverviewDiv",{ observed: monDiagramme });
-
-
-
-
-
-
+};

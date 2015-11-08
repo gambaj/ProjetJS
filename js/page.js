@@ -13,10 +13,12 @@ Page.prototype = {
         var page = this;
         window.onload = function(){
             page.fixerTaille();
-        }
+        };
         page.afficheFormulaire();
         page.timedate();
-        page.generateImages();
+
+        var noteFonction = new NoteFonction();
+        noteFonction.initialiser();
     },
 
     /**
@@ -76,20 +78,5 @@ Page.prototype = {
             showMeridian: 1,
             startDate: '+0d'
         });
-    },
-
-    /**
-     * Cette fonction telechargement l'image du diagramme de post-it.
-     */
-    generateImages:function() {
-
-        $("#buttonImpression").click(function() {
-            var imgData = monDiagramme.makeImageData({
-                scale: 1
-            });
-
-            jQuery("#imgLink").attr('href', imgData);
-            jQuery("#imgLink")[0].click();
-        })
     }
-}
+};
