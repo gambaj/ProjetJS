@@ -32,5 +32,14 @@ Note.prototype = {
         monDiagramme.startTransaction('addNode');
         monDiagramme.model.addNodeData(this.node);
         monDiagramme.commitTransaction('addNode');
+    },
+
+    /**
+     *
+     */
+    suppressionNote:function(){
+        monDiagramme.startTransaction('removeNode');
+        monDiagramme.model.removeNodeData(this.node);
+        monDiagramme.commitTransaction('removeNode');
     }
 };
