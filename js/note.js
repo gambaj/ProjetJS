@@ -29,11 +29,12 @@ Note.prototype = {
      * Cette fonction permet d'ajouter la note au diagramme.
      */
     ajoutDiagramme: function() {
-        var existant = false;
+        var titre = $("#textInputTitle").val();
+        var existant = true;
         monDiagramme.model.nodeDataArray.forEach(function(ll) {
             if(ll.nodeTitre == titre) {
                 alert("Une note avec le même titre existe. Veuillez modifier le titre de votre note ou mettez à jour la note existante");
-                existant=true;
+                existant=false;
             }
         });
         if(existant){
