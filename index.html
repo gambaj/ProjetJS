@@ -59,29 +59,30 @@
                 <div class="form-group" id="validation">
                     <button id="valider" class="btn btn-primary col-xs-offset-1">Valider</button>
                 </div>
-
             </div>
-
             <br />
 
-            <div class="form-group" id="impression">
-                <br />
-                <br />
+            <div id="impression">
+                <div class="form-group">
+
+                    <div id='diagImage' style='display:none;'>
+                        <a id='imgLink' download="diagram.png" href=""></a>
+                    </div>
+
+                </div>
+
                 <div class="form-group col-xs-12">
                     <label class="col-xs-3">Suppression</label>
                     <div class="col-xs-5">
-                        <input type="text" class="form-control" id="textInputNote" placeholder="entrer le titre de la note"  autofocus/>
+                        <input type="text" class="form-control" id="textInputNote" placeholder="Titre de note"/>
                     </div>
                     <div id="suppression" class="col-xs-3 form-group">
                         <button class="btn btn-default" id="buttonSuppression">Suppression</button>
                     </div>
                 </div>
+
                 <div id="myOverviewDiv" class="col-xs-offset-1 col-xs-4"></div>
                 <button class="btn btn-info col-xs-offset-1" id="buttonImpression">Enregistrer</button>
-            </div>
-
-            <div id='diagImage' style='display:none;'>
-                <a id='imgLink' download="diagram.png" href=""></a>
             </div>
         </div>
     </div>
