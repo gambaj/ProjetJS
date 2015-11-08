@@ -54,7 +54,7 @@ monDiagramme.nodeTemplate=
             $$(go.TextBlock, new go.Binding("text","nodeDateFinal").makeTwoWay(),
                 {
                     row: 2, margin: 3,alignment: go.Spot.Left,
-                    font: "Comic Sans MS",stroke: "gray",
+                    font: "Comic Sans MS",stroke: "red",
                     isMultiline: false, editable: false,
                     width: 200
 
