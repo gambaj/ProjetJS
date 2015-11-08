@@ -1,4 +1,3 @@
-
 var cobra = new Cobra();
 var room = "testProjetJS_Hakimi";
 var url = null;

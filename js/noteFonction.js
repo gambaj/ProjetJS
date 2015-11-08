@@ -4,6 +4,9 @@ function NoteFonction() {
 
 NoteFonction.prototype = {
 
+    //var cobraTest = this.cobraNote;
+    cobraNote : null,
+
     initialiser:function () {
         this.generateImages();
         this.generateNotesCobra();
@@ -35,7 +38,7 @@ NoteFonction.prototype = {
             var date = $("#textInputDate").val();
             if(title && content && user && date) {
                 var message={title:title, content: content, user: user, date: date};
-                cobra.sendMessage(message, room, true);
+                cobra.sendMessage(message, "weCreateNote", true);
                 $("#textInputTitle").val("");
                 $("#textInputText").val("");
                 $("#textInputDate").val("");
