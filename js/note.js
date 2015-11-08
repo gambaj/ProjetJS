@@ -37,9 +37,13 @@ Note.prototype = {
     /**
      *
      */
-    suppressionNote:function(){
-        monDiagramme.startTransaction('removeNode');
-        monDiagramme.model.removeNodeData(this.node);
-        monDiagramme.commitTransaction('removeNode');
+    suppressionNote:function(titre){
+        monDiagramme.model.nodeDataArray.forEach(function(ll) {
+            if(ll.nodeTitre == titre) {
+                monDiagramme.startTransaction('removeNode');
+                monDiagramme.model.removeNodeData(ll);
+                monDiagramme.commitTransaction('removeNode');
+            }
+        });
     }
 };
