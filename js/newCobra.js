@@ -1,5 +1,5 @@
 var cobra = new Cobra();
-var room = "jordanng";
+var room = "Testage";
 var url = null;
 var socketId = null;
 var apiUrl = 'http://cobra-framework.com:3000/api/events/' + room;
@@ -11,7 +11,6 @@ cobra.connectionCallback = function(){
 };
 
 cobra.joinRoomCallback = function(){
-    // appel a l'API pour recuperer tous les messages de la room roomName
     $.ajax({
         type: 'GET',
         url: apiUrl,
@@ -34,12 +33,6 @@ cobra.joinRoomCallback = function(){
                     note.suppressionNote();
                 }
             }
-
-            // Pour envoyer un message dans toute la room
-            //cobra.sendMessage({content : "test"}, room, true);
-
-            // Pour envoyer un message dans toute la room except� soi
-            // cobra.sendMessage({content : "test"}, room, false);
         }
     });
 };
@@ -56,9 +49,10 @@ cobra.messageReceivedCallback = function(message){
     }
     else {
         if (message.message.action == "ajoutOuModification"){
-            console.log("else");
+            console.log("Ajout de note.");
             if (socketId == message.socketId) {
                 var note = new Note(message.message.title);
+                console.log("La note est créé : " + message.message.title);
                 note.creation(message.message.content, message.message.user, message.message.date);
             }
             else {

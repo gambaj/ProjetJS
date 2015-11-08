@@ -30,12 +30,13 @@ Note.prototype = {
      * Cette fonction permet d'ajouter la note au diagramme.
      */
     ajoutDiagramme: function() {
-        var titre = $("#textInputTitle").val();
-        var existant = true;
+        var titre = this.titre;
+        var existant = false;
+        console.log("AjoutDiagramme")
         monDiagramme.model.nodeDataArray.forEach(function(ll) {
-            if(ll.nodeTitre == this.titre) {
-                alert("Une note avec le même titre existe. Veuillez modifier le titre de votre note ou mettez à jour la note existante");
-                existant=false;
+            if(ll.nodeTitre == titre) {
+                console.log("Une note avec le même titre existe. Veuillez modifier le titre de votre note ou mettez à jour la note existante");
+                existant = true;
             }
         });
         if(!existant){
@@ -50,11 +51,8 @@ Note.prototype = {
      */
     suppressionNote:function(){
         var titre = this.titre;
-        console.log("On rentre dans la fonction de suppression.");
         monDiagramme.model.nodeDataArray.forEach(function(ll) {
-            console.log("On commence à chercher...");
             if(ll.nodeTitre == titre) {
-                console.log("J'ai trouvé la note de nom : " + ll.nodeTitre);
                 monDiagramme.startTransaction('removeNode');
                 monDiagramme.model.removeNodeData(ll);
                 monDiagramme.commitTransaction('removeNode');

@@ -38,7 +38,7 @@ NoteFonction.prototype = {
             var date = $("#textInputDate").val();
             if(title && content && user ) {
                 var message={action:action,title:title, content: content, user: user, date: date};
-                cobra.sendMessage(message, "jordanng", true);
+                cobra.sendMessage(message, "Testage", true);
                 $("#textInputTitle").val("");
                 $("#textInputText").val("");
                 //$("#textInputSession").val("");
@@ -54,7 +54,7 @@ NoteFonction.prototype = {
             var title = $("#textInputNote").val();
             if(title) {
                 var message={action:action,title:title};
-                cobra.sendMessage(message, "jordanng", true);
+                cobra.sendMessage(message, "Testage", true);
                 $("#textInputNote").val("");
             }
         }) ;
