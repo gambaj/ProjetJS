@@ -1,5 +1,5 @@
 var cobra = new Cobra();
-var room = "testProjetJS_Hakimi";
+var room = "jordanng";
 var url = null;
 var socketId = null;
 var apiUrl = 'http://cobra-framework.com:3000/api/events/' + room;
@@ -7,11 +7,11 @@ var apiUrl = 'http://cobra-framework.com:3000/api/events/' + room;
 
 cobra.connectionCallback = function(){
     cobra.joinRoom(room);
-    console.log("connectionsuccess");
+    console.log("connectionSuccess");
 };
 
 cobra.joinRoomCallback = function(){
-    // appel à l'API pour récupérer tous les messages de la room roomName
+    // appel a l'API pour recuperer tous les messages de la room roomName
     $.ajax({
         type: 'GET',
         url: apiUrl,
@@ -28,14 +28,17 @@ cobra.joinRoomCallback = function(){
 
             for (var i = 0; i < result.responseJSON.Events.length; i++) {
                 var content = JSON.parse(result.responseJSON.Events[i].content);
-                var note = new Note();
-                note.creation(content.message.title, content.message.content, content.message.user, content.message.date);
+                var note = new Note(content.message.title);
+                note.creation(content.message.content, content.message.user, content.message.date);
+                if (content.message.action == "suppressionNote") {
+                    note.suppressionNote();
+                }
             }
 
             // Pour envoyer un message dans toute la room
             //cobra.sendMessage({content : "test"}, room, true);
 
-            // Pour envoyer un message dans toute la room excepté soi
+            // Pour envoyer un message dans toute la room exceptï¿½ soi
             // cobra.sendMessage({content : "test"}, room, false);
         }
     });
@@ -55,51 +58,33 @@ cobra.messageReceivedCallback = function(message){
         if (message.message.action == "ajoutOuModification"){
             console.log("else");
             if (socketId == message.socketId) {
-                var note = new Note();
-                note.creation(message.message.title, message.message.content, message.message.user, message.message.date);
+                var note = new Note(message.message.title);
+                note.creation(message.message.content, message.message.user, message.message.date);
             }
             else {
-                var note = new Note();
-                note.creation(message.message.title, message.message.content, message.message.user, message.message.date);
+                var note = new Note(message.message.title);
+                note.creation(message.message.content, message.message.user, message.message.date);
             }
         }
         else{
             if (message.message.action == "suppressionNote"){
-                console.log("else");
+                console.log("suppressionNote");
                 if (socketId == message.socketId) {
-                    var note = new Note();
-                    note.suppressionNote(message.message.title);
+                    var note = new Note(message.message.title);
+                    console.log('On va supprimer la note : ' + message.message.title);
+                    note.suppressionNote();
+                    console.log('Bonne suppression de : ' + message.message.title);
                 }
                 else {
-                    var note = new Note();
-                    note.suppressionNote(message.message.title);
+                    var note = new Note(message.message.title);
+                    note.suppressionNote();
                 }
             }
         }
     }
-}
+};
 
 $(document).ready(function () {
-    $("#valider").click(function(){
-        sendMsg();
-    }) ;
-
-    var sendMsg = function(){
-        var action="ajoutOuModification";
-        var title = $("#textInputTitle").val();
-        var content = $("#textInputText").val();
-        var user = $("#textInputSession").val();
-        var date = $("#textInputDate").val();
-        if(title && content && user ) {
-            var message={action:action,title:title, content: content, user: user, date: date};
-            cobra.sendMessage(message, room, true);
-            $("#textInputTitle").val("");
-            $("#textInputText").val("");
-            //$("#textInputSession").val("");
-            $("#textInputDate").val("");
-            $("#textInputTitle").focus();
-        }
-    }
 
     $("#buttonConnexion").click(function(){
         var user=$("#textInputSession").val();
@@ -110,19 +95,4 @@ $(document).ready(function () {
             alert("Veuillez saisir votre nom pour ouvrir une session!");
         }
     }) ;
-
-    $("#buttonSuppression").click(function(){
-        sendMsgSup();
-    }) ;
-
-    var sendMsgSup = function(){
-        var action="suppressionNote";
-        var title = $("#textInputNote").val();
-        if(title) {
-            var message={action:action,title:title};
-            cobra.sendMessage(message, room, true);
-            $("#textInputNote").val("");
-        }
-    }
-
 });

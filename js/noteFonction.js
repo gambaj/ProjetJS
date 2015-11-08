@@ -1,16 +1,15 @@
 // Définition de l'objet NoteFonction qui contient les fonctionnalités spécifiques aux notes.
 function NoteFonction() {
+
 }
 
 NoteFonction.prototype = {
-
-    //var cobraTest = this.cobraNote;
-    cobraNote : null,
 
     initialiser:function () {
         this.generateImages();
         this.generateNotesCobra();
         this.generateOverview();
+        this.generateNotesSupCobra();
     },
 
     /**
@@ -32,19 +31,33 @@ NoteFonction.prototype = {
      */
     generateNotesCobra:function() {
         $("#valider").click(function(){
+            var action="ajoutOuModification";
             var title = $("#textInputTitle").val();
             var content = $("#textInputText").val();
             var user = $("#textInputSession").val();
             var date = $("#textInputDate").val();
-            if(title && content && user && date) {
-                var message={title:title, content: content, user: user, date: date};
-                cobra.sendMessage(message, "weCreateNote", true);
+            if(title && content && user ) {
+                var message={action:action,title:title, content: content, user: user, date: date};
+                cobra.sendMessage(message, "jordanng", true);
                 $("#textInputTitle").val("");
                 $("#textInputText").val("");
+                //$("#textInputSession").val("");
                 $("#textInputDate").val("");
                 $("#textInputTitle").focus();
             }
         });
+    },
+
+    generateNotesSupCobra:function() {
+        $("#buttonSuppression").click(function(){
+            var action="suppressionNote";
+            var title = $("#textInputNote").val();
+            if(title) {
+                var message={action:action,title:title};
+                cobra.sendMessage(message, "jordanng", true);
+                $("#textInputNote").val("");
+            }
+        }) ;
     },
 
     /**
