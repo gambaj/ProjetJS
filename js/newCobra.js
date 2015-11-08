@@ -52,15 +52,30 @@ cobra.messageReceivedCallback = function(message){
         socketId = message.socketId;
         console.log("infos1111");
     }
-    else{
-        console.log("else");
-        if (socketId == message.socketId) {
-            var note = new Note();
-            note.creation(message.message.title, message.message.content, message.message.user, message.message.date);
+    else {
+        if (message.message.action == "ajoutOuModification"){
+            console.log("else");
+            if (socketId == message.socketId) {
+                var note = new Note();
+                note.creation(message.message.title, message.message.content, message.message.user, message.message.date);
+            }
+            else {
+                var note = new Note();
+                note.creation(message.message.title, message.message.content, message.message.user, message.message.date);
+            }
         }
-        else {
-            var note = new Note();
-            note.creation(message.message.title, message.message.content, message.message.user, message.message.date);
+        else{
+            if (message.message.action == "suppressionNote"){
+                console.log("else");
+                if (socketId == message.socketId) {
+                    var note = new Note();
+                    note.suppressionNote(message.message.title);
+                }
+                else {
+                    var note = new Note();
+                    note.suppressionNote(message.message.title);
+                }
+            }
         }
     }
 }
@@ -71,12 +86,13 @@ $(document).ready(function () {
     }) ;
 
     var sendMsg = function(){
+        var action="ajoutOuModification";
         var title = $("#textInputTitle").val();
         var content = $("#textInputText").val();
         var user = $("#textInputSession").val();
         var date = $("#textInputDate").val();
         if(title && content && user && date) {
-            var message={title:title, content: content, user: user, date: date};
+            var message={action:action,title:title, content: content, user: user, date: date};
             cobra.sendMessage(message, room, true);
             $("#textInputTitle").val("");
             $("#textInputText").val("");
@@ -95,4 +111,19 @@ $(document).ready(function () {
             alert("Veuillez saisir votre nom pour ouvrir une session!");
         }
     }) ;
+
+    $("#buttonSuppression").click(function(){
+        sendMsgSup();
+    }) ;
+
+    var sendMsgSup = function(){
+        var action="suppressionNote";
+        var title = $("#textInputNote").val();
+        if(title) {
+            var message={action:action,title:title};
+            cobra.sendMessage(message, room, true);
+            $("#textInputNote").val("");
+        }
+    }
+
 });
