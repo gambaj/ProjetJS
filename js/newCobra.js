@@ -1,6 +1,6 @@
 
 var cobra = new Cobra();
-var room = "roomJS";
+var room = "testProjetJS_Hakimi";
 var url = null;
 var socketId = null;
 var apiUrl = 'http://cobra-framework.com:3000/api/events/' + room;
