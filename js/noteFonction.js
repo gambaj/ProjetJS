@@ -10,6 +10,7 @@ NoteFonction.prototype = {
         this.generateNotesCobra();
         this.generateOverview();
         this.generateNotesSupCobra();
+        this.generateConnexion();
     },
 
     /**
@@ -59,6 +60,19 @@ NoteFonction.prototype = {
             }
         }) ;
     },
+
+    generateConnexion:function() {
+        $("#buttonConnexion").click(function(){
+            var user=$("#textInputSession").val();
+            if(user){
+                cobra.connect("http://cobra-framework.com:8080");
+            }
+            else{
+                alert("Veuillez saisir votre nom pour ouvrir une session!");
+            }
+        }) ;
+    },
+
 
     /**
      * Cette fonction permet d'afficher l'overview des notes.

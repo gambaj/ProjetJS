@@ -80,3 +80,6 @@ Page.prototype = {
         });
     }
 };
+
+var page = new Page();
+page.initialiser();

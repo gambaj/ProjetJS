@@ -77,16 +77,3 @@ cobra.messageReceivedCallback = function(message){
         }
     }
 };
-
-$(document).ready(function () {
-
-    $("#buttonConnexion").click(function(){
-        var user=$("#textInputSession").val();
-        if(user){
-            cobra.connect("http://cobra-framework.com:8080");
-        }
-        else{
-            alert("Veuillez saisir votre nom pour ouvrir une session!");
-        }
-    }) ;
-});
