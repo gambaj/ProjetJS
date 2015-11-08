@@ -91,7 +91,7 @@ $(document).ready(function () {
         var content = $("#textInputText").val();
         var user = $("#textInputSession").val();
         var date = $("#textInputDate").val();
-        if(title && content && user && date) {
+        if(title && content && user ) {
             var message={action:action,title:title, content: content, user: user, date: date};
             cobra.sendMessage(message, room, true);
             $("#textInputTitle").val("");

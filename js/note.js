@@ -10,7 +10,7 @@ Note.prototype = {
      */
     creation:function (titre, contenu, auteur, echeance) {
         this.initialiser(titre, contenu, auteur, echeance);
-        this.ajoutDiagramme();
+        this.ajoutDiagramme(titre);
     },
 
     /**
@@ -29,9 +29,19 @@ Note.prototype = {
      * Cette fonction permet d'ajouter la note au diagramme.
      */
     ajoutDiagramme: function() {
-        monDiagramme.startTransaction('addNode');
-        monDiagramme.model.addNodeData(this.node);
-        monDiagramme.commitTransaction('addNode');
+        var existant = false;
+        monDiagramme.model.nodeDataArray.forEach(function(ll) {
+            if(ll.nodeTitre == titre) {
+                alert("Une note avec le même titre existe. Veuillez modifier le titre de votre note ou mettez à jour la note existante");
+                existant=true;
+            }
+        });
+        if(existant){
+            monDiagramme.startTransaction('addNode');
+            monDiagramme.model.addNodeData(this.node);
+            monDiagramme.commitTransaction('addNode');
+        }
+
     },
 
     /**
