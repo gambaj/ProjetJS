@@ -5,18 +5,21 @@ function NoteFonction() {
 
 NoteFonction.prototype = {
 
+    /**
+     * Cette fonction initialise toutes les fonctionnalités de note du projet.
+     */
     initialiser:function () {
-        this.generateImages();
-        this.generateNotesCobra();
-        this.generateOverview();
-        this.generateNotesSupCobra();
-        this.generateConnexion();
+        this.genererImage();
+        this.connecterCobra();
+        this.envoyerNoteCobra();
+        this.supprimerNoteCobra();
+        this.afficherOverview();
     },
 
     /**
      * Cette fonction telecharge l'image du diagramme de post-it.
      */
-    generateImages:function() {
+    genererImage:function() {
         $("#buttonImpression").click(function() {
             var imgData = monDiagramme.makeImageData({
                 scale: 1
@@ -30,7 +33,7 @@ NoteFonction.prototype = {
     /**
      * Cette fonction envoie un message à Cobra contenant les valeurs de champs du formulaire et affiche la note.
      */
-    generateNotesCobra:function() {
+    envoyerNoteCobra:function() {
         $("#valider").click(function(){
             var action="ajoutOuModification";
             var title = $("#textInputTitle").val();
@@ -49,7 +52,7 @@ NoteFonction.prototype = {
         });
     },
 
-    generateNotesSupCobra:function() {
+    supprimerNoteCobra:function() {
         $("#buttonSuppression").click(function(){
             var action="suppressionNote";
             var title = $("#textInputNote").val();
@@ -61,7 +64,7 @@ NoteFonction.prototype = {
         }) ;
     },
 
-    generateConnexion:function() {
+    connecterCobra:function() {
         $("#buttonConnexion").click(function(){
             var user=$("#textInputSession").val();
             if(user){
@@ -77,7 +80,7 @@ NoteFonction.prototype = {
     /**
      * Cette fonction permet d'afficher l'overview des notes.
      */
-    generateOverview:function() {
-        //$('#impression').append('<div id=\'myOverviewDiv\' class=\'col-xs-offset-1 col-xs-4\'></div>');
+    afficherOverview:function() {
+        $('.overview').attr('id','myOverviewDiv');
     }
 };

@@ -1,6 +1,7 @@
 // Définition de l'objet Page qui va initialiser la page et le formulaire.
 function Page() {
     this.hauteur = 0;
+    this.noteFonction = new NoteFonction();
 }
 
 Page.prototype = {
@@ -12,20 +13,19 @@ Page.prototype = {
 
         var page = this;
         window.onload = function(){
-            page.fixerTaille();
+            page.fixerTailleEcran();
         };
-        page.afficheFormulaire();
-        page.timedate();
+        page.afficherFormulaire();
+        page.configurerDate();
 
-        var noteFonction = new NoteFonction();
-        noteFonction.initialiser();
+        this.noteFonction.initialiser();
     },
 
     /**
      * Cette fonction calcule la taille verticale de l'ecran en pixel et la fixe à un bloc.
      * @param bloc le bloc dont on souhaite modifier la taille.
      */
-    height:function height(bloc){
+    calculerHauteur:function (bloc){
 
         if(typeof( window.innerWidth )=='number')
             this.hauteur = window.innerHeight;
@@ -39,16 +39,16 @@ Page.prototype = {
     /**
      * Cette fonction fixe la taille des deux blocs principaux à la taille de l'ecran.
      */
-    fixerTaille:function () {
+    fixerTailleEcran:function () {
 
-        this.height("divTableau");
-        this.height("divMenu");
+        this.calculerHauteur("divTableau");
+        this.calculerHauteur("divMenu");
     },
 
     /**
      * Cette fonction cache, puis affiche le formulaire lorsque l'utilisateur se connecte.
      */
-    afficheFormulaire:function() {
+    afficherFormulaire:function() {
 
         $("#formulaire").hide();
         $("#impression").hide();
@@ -61,9 +61,9 @@ Page.prototype = {
     },
 
     /**
-     * Initialiser le format du champ "date".
+     * Cette fonction initialise le format du champ "date".
      */
-    timedate:function() {
+    configurerDate:function() {
 
         $('.datetime').datetimepicker({
             dateFormat: "dd/mm/yy",
