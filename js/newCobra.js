@@ -3,7 +3,6 @@ var room = "Testage";
 var url = null;
 var socketId = null;
 var apiUrl = 'http://cobra-framework.com:3000/api/events/' + room;
-//cobra.connect("http://cobra-framework.com:8080");
 
 cobra.connectionCallback = function(){
     cobra.joinRoom(room);

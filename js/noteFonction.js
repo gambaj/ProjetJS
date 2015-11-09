@@ -52,6 +52,9 @@ NoteFonction.prototype = {
         });
     },
 
+    /**
+     * Cette fonction envoie un message à cobra permettant de supprimer une note.
+     */
     supprimerNoteCobra:function() {
         $("#buttonSuppression").click(function(){
             var action="suppressionNote";
@@ -64,6 +67,9 @@ NoteFonction.prototype = {
         }) ;
     },
 
+    /**
+     * Cette foncton connecte l'utilisateur à Cobra lorsqu'il se connecte avec un pseudo.
+     */
     connecterCobra:function() {
         $("#buttonConnexion").click(function(){
             var user=$("#textInputSession").val();
