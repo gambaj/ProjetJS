@@ -56,6 +56,11 @@ Page.prototype = {
             if ($.trim($("#textInputSession").val()).length > 0) {
                 $('#formulaire').show();
                 $('#impression').show();
+            } else {
+                $('#textInputSession').notify("Veuillez saisir votre nom.", {
+                    className: 'error',
+                    position: "bottom left"
+                });
             }
         });
     },

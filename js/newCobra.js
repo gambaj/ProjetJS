@@ -1,12 +1,13 @@
+
 var cobra = new Cobra();
-var room = "Testage";
+var room = "noteSCJ";
 var url = null;
 var socketId = null;
 var apiUrl = 'http://cobra-framework.com:3000/api/events/' + room;
 
 cobra.connectionCallback = function(){
     cobra.joinRoom(room);
-    console.log("connectionSuccess");
+    console.log("connection success to room " + room);
 };
 
 cobra.joinRoomCallback = function(){
@@ -47,31 +48,45 @@ cobra.messageReceivedCallback = function(message){
         console.log("infos1111");
     }
     else {
-        if (message.message.action == "ajoutOuModification"){
+        if (message.message.action == "connexion") {
+        console.log("Connexion.");
+        if (socketId != message.socketId) {
+            var fonction = new NoteFonction();
+            fonction.notifierConnexion(message.message.user);
+            }
+        }
+        else if (message.message.action == "ajoutOuModification"){
             console.log("Ajout de note.");
             if (socketId == message.socketId) {
                 var note = new Note(message.message.title);
-                console.log("La note est créé : " + message.message.title);
                 note.creation(message.message.content, message.message.user, message.message.date);
+
+                if (note.existant == true) {
+                    note.notifierNoteExistante(message.message.title);
+                } else {
+                    note.notifier("ajout");
+                }
             }
             else {
                 var note = new Note(message.message.title);
                 note.creation(message.message.content, message.message.user, message.message.date);
+
+                if (note.existant == false) {
+                    note.notifierUtilisateur(message.message.user, "ajout");
+                }
             }
         }
-        else{
-            if (message.message.action == "suppressionNote"){
-                console.log("suppressionNote");
-                if (socketId == message.socketId) {
-                    var note = new Note(message.message.title);
-                    console.log('On va supprimer la note : ' + message.message.title);
-                    note.suppressionNote();
-                    console.log('Bonne suppression de : ' + message.message.title);
-                }
-                else {
-                    var note = new Note(message.message.title);
-                    note.suppressionNote();
-                }
+        else if (message.message.action == "suppressionNote"){
+            console.log("Suppression de note.");
+            if (socketId == message.socketId) {
+                var note = new Note(message.message.title);
+                note.suppressionNote();
+                note.notifier("suppression");
+            }
+            else {
+                var note = new Note(message.message.title);
+                note.suppressionNote();
+                note.notifierUtilisateur(message.message.user, "suppression");
             }
         }
     }

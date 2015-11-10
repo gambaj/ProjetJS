@@ -42,10 +42,9 @@ NoteFonction.prototype = {
             var date = $("#textInputDate").val();
             if(title && content && user ) {
                 var message={action:action,title:title, content: content, user: user, date: date};
-                cobra.sendMessage(message, "Testage", true);
+                cobra.sendMessage(message, "noteSCJ", true);
                 $("#textInputTitle").val("");
                 $("#textInputText").val("");
-                //$("#textInputSession").val("");
                 $("#textInputDate").val("");
                 $("#textInputTitle").focus();
             }
@@ -59,9 +58,10 @@ NoteFonction.prototype = {
         $("#buttonSuppression").click(function(){
             var action="suppressionNote";
             var title = $("#textInputNote").val();
+            var user = $("#textInputSession").val();
             if(title) {
-                var message={action:action,title:title};
-                cobra.sendMessage(message, "Testage", true);
+                var message={action:action,title:title, user:user};
+                cobra.sendMessage(message, "noteSCJ", true);
                 $("#textInputNote").val("");
             }
         }) ;
@@ -72,16 +72,26 @@ NoteFonction.prototype = {
      */
     connecterCobra:function() {
         $("#buttonConnexion").click(function(){
+            var action="connexion";
             var user=$("#textInputSession").val();
             if(user){
+                var message={action:action, user:user};
                 cobra.connect("http://cobra-framework.com:8080");
-            }
-            else{
-                alert("Veuillez saisir votre nom pour ouvrir une session!");
+                setTimeout(function(){ cobra.sendMessage(message, "noteSCJ", true); }, 1000);
             }
         }) ;
     },
 
+    /**
+     * Cette fonction notifie tous les utilisateurs, lorsqu'on se connecte.
+     * @param user le nom de l'utilisateur
+     */
+    notifierConnexion:function(user) {
+        $.notify(user + ' vient de se connecter.', {
+            className: 'info',
+            position: "bottom left"
+        });
+    },
 
     /**
      * Cette fonction permet d'afficher l'overview des notes.
