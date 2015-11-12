@@ -49,10 +49,10 @@ cobra.messageReceivedCallback = function(message){
     }
     else {
         if (message.message.action == "connexion") {
-        console.log("Connexion.");
-        if (socketId != message.socketId) {
-            var fonction = new NoteFonction();
-            fonction.notifierConnexion(message.message.user);
+            console.log("Connexion.");
+            if (socketId != message.socketId) {
+                var fonction = new NoteFonction();
+                fonction.notifierConnexion(message.message.user);
             }
         }
         else if (message.message.action == "ajoutOuModification"){
